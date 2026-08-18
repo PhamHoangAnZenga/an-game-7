@@ -20,11 +20,7 @@ public class SceneController : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
 
-        Vector3 target = _objB.position + (_objB.position - _objA.transform.position).normalized ;
-
-        sequence.Append(_objA.DOMove(target, _moveTime));
-
-        sequence.Append(_objA.DOMove(_objB.position, 1f));
+        sequence.Append(_objA.DOMove(_objB.position, _moveTime).SetEase(Ease.InOutBack));
 
         sequence.AppendInterval(_delayTime);
 
